@@ -12,13 +12,9 @@ build:
   image: openjdk:latest
   script:
       - ./mvnw install
-      - pwd
-      - ls
   artifacts:
     paths:
       - target/
-  only:
-      - master
       
 deploy_staging:
   stage: deploy
@@ -28,6 +24,6 @@ deploy_staging:
       - apt-get install -y ruby-dev
       - gem install dpl
       - cd target
-      - dpl --provider=heroku --app=${HEROKU_APP_STAGING} --api-key=${HEROKU_API_KEY}
+      - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY  --skip_cleanup
   only:
       - master
