@@ -2,7 +2,7 @@ image: python:latest
 
 before_script:
   - chmod +x mvnw
-  - apt-get update
+  - yum update
 
 stages:
 - staging
