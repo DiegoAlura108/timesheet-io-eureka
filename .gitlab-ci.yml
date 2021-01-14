@@ -12,6 +12,7 @@ staging:
   script: 
       - apt-get update -qy
       - apt-get install -y ruby2.7
+      - apt-get install -y dpl
       - apt-get install -y default-jdk
       - gem install dpl
       - ./mvnw install
