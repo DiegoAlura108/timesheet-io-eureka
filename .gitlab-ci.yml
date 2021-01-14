@@ -9,12 +9,8 @@ stages:
 
 build:
   stage: build
-  image: ubuntu:latest
-  script: 
-      - apt-get update -qy
-      - apt-get install -y ruby-dev
-      - gem install dpl
-      - apt-get install -y default-jdk
+  image: openjdk:latest
+  script:
       - ./mvnw install
       - pwd
       - ls
@@ -26,8 +22,11 @@ build:
       
 deploy_staging:
   stage: deploy
-  image: openjdk:latest
+  image: ubuntu:latest
   script:
+      - apt-get update -qy
+      - apt-get install -y ruby-dev
+      - gem install dpl
       - cd target
       - dpl --provider=heroku --app=${HEROKU_APP_STAGING} --api-key=${HEROKU_API_KEY}
   only:
