@@ -5,7 +5,7 @@ before_script:
 
 stages:
   - staging
-      
+
 staging:
   stage: staging
   image: ubuntu:latest
