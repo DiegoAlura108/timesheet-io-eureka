@@ -9,6 +9,7 @@ stages:
   
 installation:
   stage: installation
+  image: alpine:latest
   script:
       - apt-get update -qy
       - apt-get install -y ruby-dev
