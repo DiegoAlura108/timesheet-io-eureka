@@ -1,16 +1,22 @@
-image: ubuntu:latest
+image: maven:latest
 
 before_script:
   - chmod +x mvnw
-  - export PATH=$PATH:/usr/bin/bash
-  - apt-get update -qy
-  - apt-get install -y ruby-dev
-  - gem install dpl
 
 stages:
+  - installation
   - staging
-
-deploy:
+  
+installation:
+  stage: installation
+  script:
+      - apt-get update -qy
+      - apt-get install -y ruby-dev
+      - apt-get update -qy
+      - apt-get install -y python-dev python-pip
+      - gem install dpl
+      
+staging:
   stage: staging
   image: openjdk:latest
   script: 
