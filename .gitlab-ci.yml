@@ -12,7 +12,7 @@ staging:
   script: 
       - apt-get update -qy
       - apt-get install -y ruby-dev
-      - gem install dpl -v
+      - gem install dpl
       - apt-get install -y default-jdk
       - ./mvnw install
       - dpl --provider=heroku --app=eureka-heroku-env-staging --api-key=42b3fe32-89db-499d-a5eb-efea04adc79c
