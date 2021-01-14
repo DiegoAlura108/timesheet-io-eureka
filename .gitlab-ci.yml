@@ -4,10 +4,11 @@ before_script:
   - chmod +x mvnw
 
 stages:
-  - staging
+  - build
+  - deploy
 
-staging:
-  stage: staging
+build:
+  stage: build
   image: ubuntu:latest
   script: 
       - apt-get update -qy
@@ -15,9 +16,21 @@ staging:
       - gem install dpl
       - apt-get install -y default-jdk
       - ./mvnw install
-      - dpl --provider=heroku --app=${HEROKU_APP_STAGING} --api-key=${HEROKU_API_KEY}
+      - pwd
   artifacts:
     paths:
-      - target/eureka-0.0.1-SNAPSHOT.jar
+      - target/
+  only:
+      - master
+      
+deploy_staging:
+  stage: build
+  image: openjdk:latest
+  script:
+      - apt-get update -qy
+      - apt-get install -y ruby-dev
+      - gem install dpl
+      - ./mvnw install
+      - dpl --provider=heroku --app=${HEROKU_APP_STAGING} --api-key=${HEROKU_API_KEY}
   only:
       - master
