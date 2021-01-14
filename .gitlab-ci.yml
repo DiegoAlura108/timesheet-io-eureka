@@ -7,16 +7,15 @@ stages:
   - staging
 
 staging:
-  type: deploy
   stage: staging
   image: ubuntu:latest
   script: 
       - apt-get update -qy
       - apt-get install -y ruby-dev
-      - apt-get install -y git
-      - gem install dpl
-      - git remote add heroku https://heroku:42b3fe32-89db-499d-a5eb-efea04adc79c@git.heroku.com/eureka-heroku-env-staging.git
-      - git push -f heroku HEAD:master
+      - gem install dpl -y
+      - apt-get install -y default-jdk
+      - ./mvnw install
+      - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
   artifacts:
     paths:
       - target/eureka-0.0.1-SNAPSHOT.jar
