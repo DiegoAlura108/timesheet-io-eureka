@@ -10,7 +10,7 @@ before_script:
 stages:
   - staging
 
-build:
+deploy:
   stage: staging
   image: openjdk:latest
   script: 
