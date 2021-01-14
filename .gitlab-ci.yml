@@ -11,8 +11,7 @@ staging:
   image: ubuntu:latest
   script: 
       - apt-get update -qy
-      - apt-get install -y python-dev python-pip
-      - apt-get install -y ruby-dev
+      - apt-get install -y ruby2.7
       - apt-get install -y default-jdk
       - gem install dpl
       - ./mvnw install
