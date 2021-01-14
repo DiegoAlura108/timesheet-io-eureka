@@ -7,7 +7,8 @@ stages:
   - staging
 
 staging:
-  stage: deploy
+  type: deploy
+  stage: staging
   image: ubuntu:latest
   script: 
       - apt-get update -qy
