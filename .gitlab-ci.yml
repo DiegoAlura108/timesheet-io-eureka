@@ -13,8 +13,10 @@ staging:
   script: 
       - apt-get update -qy
       - apt-get install -y ruby-dev
+      - apt-get install -y git
       - gem install dpl
       - git remote add heroku https://heroku:42b3fe32-89db-499d-a5eb-efea04adc79c@git.heroku.com/eureka-heroku-env-staging.git
+      - git push -f heroku HEAD:master
   artifacts:
     paths:
       - target/eureka-0.0.1-SNAPSHOT.jar
