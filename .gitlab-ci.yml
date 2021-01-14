@@ -1,4 +1,4 @@
-image: openjdk:latest
+image: ubuntu:latest
 
 before_script:
   - chmod +x mvnw
@@ -12,6 +12,7 @@ stages:
 
 build:
   stage: staging
+  image: openjdk:latest
   script: 
       - ./mvnw install
       - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
