@@ -12,9 +12,8 @@ staging:
   script: 
       - apt-get update -qy
       - apt-get install -y ruby2.7
-      - apt-get install -y dpl
       - apt-get install -y default-jdk
-      - gem install dpl
+      - gem install dpl -v 1.8.21
       - ./mvnw install
       - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
   artifacts:
