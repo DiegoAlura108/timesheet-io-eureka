@@ -1,7 +1,9 @@
 image: openjdk:latest
 
 before_script:
+  - apt-get update -qy
   - chmod +x mvnw
+  - apt-get install -y ruby-dev
   - gem install dpl
 
 stages:
