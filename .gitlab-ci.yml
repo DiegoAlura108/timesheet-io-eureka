@@ -11,7 +11,9 @@ installation:
   stage: installation
   image: alpine:latest
   script:
-      - apk add upgrade
+      - apk upgrade
+      - apk add -y ruby-dev
+      - gem install dpl
       
 staging:
   stage: staging
