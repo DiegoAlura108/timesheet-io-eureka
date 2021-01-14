@@ -8,10 +8,11 @@ stages:
       
 staging:
   stage: staging
-  image: openjdk:latest && alpine:latest
+  image: alpine:latest
   script: 
       - apk upgrade
       - apk add ruby-dev
+      - apk add openjdk
       - gem install dpl
       - ./mvnw install
       - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
