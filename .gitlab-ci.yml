@@ -12,7 +12,7 @@ staging:
   script: 
       - apk upgrade
       - apk add ruby-dev
-      - apk add openjdk
+      - apk add openjdk11
       - gem install dpl
       - ./mvnw install
       - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
