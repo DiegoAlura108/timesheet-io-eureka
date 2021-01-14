@@ -7,6 +7,9 @@ maven-build:
   image: maven:3-jdk-8
   stage: build
   script: "mvn package -B"
+  artifacts:
+    paths:
+      - target/eureka-0.0.1-SNAPSHOT.jar
 
 maven-test:
   image: maven:3-jdk-8
