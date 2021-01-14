@@ -11,11 +11,7 @@ installation:
   stage: installation
   image: alpine:latest
   script:
-      - apt-get update -qy
-      - apt-get install -y ruby-dev
-      - apt-get update -qy
-      - apt-get install -y python-dev python-pip
-      - gem install dpl
+      - apk add upgrade
       
 staging:
   stage: staging
