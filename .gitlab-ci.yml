@@ -1,4 +1,4 @@
-mage: java:11
+mage: java:latest
 before_script:
 - chmod +x mvnw
 stages:
