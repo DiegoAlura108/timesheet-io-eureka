@@ -6,3 +6,5 @@ eureka:
     fetch-registry: false
     register-with-eureka: false
     eureka-server-total-connections-per-host: 5
+  server:
+    wait-time-in-ms-when-sync-empty: 8
