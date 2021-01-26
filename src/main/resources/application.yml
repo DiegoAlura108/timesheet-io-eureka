@@ -8,3 +8,5 @@ eureka:
     eureka-server-total-connections-per-host: 5
   server:
     wait-time-in-ms-when-sync-empty: 8
+    renewal-percent-threshold: 0.85
+    enableSelfPreservation: false
